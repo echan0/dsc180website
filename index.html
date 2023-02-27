@@ -10,43 +10,73 @@
   </head>
   <body>
     <main>
-        <h1>Welcome to My Website</h1>  
-        <ul>
-            2 million Americans diagnosed with cancer every year
-        </ul>
-        <ul>
-            Previous work has been done to distinguish between cancer types with only fungal DNA from around the tumor
-        </ul>
-        <ul>
-            Can we learn about the progression of the cancer, as measured by cancer stage and days to death, if we incorporated data about the patient and sample as well?
-        </ul>
+        <h1>Evaluating Fungal Feature Importance in Predicting Life Expectancy for Cancer Patients</h1> 
+        <h3>Benjamin Sacks, Ethan Chan, Mark Zheng</h3> 
         
         <h2>Background & Research Question</h2>
-        <ul>
-            Fungal counts and metadata feature tables obtained from the TCGA cohort of the aforementioned study batch corrected to the WIS cohort
-        </ul>
-        <ul>
-            Tissue samples were taken from and around tumors and then sequenced using ITS2 (WIS) and shotgun metagenomic approach (TCGA)
-        </ul>
-        <ul>
-            For more detail, see: https://www.cell.com/cell/fulltext/S0092-8674(22)01127-8
-        </ul>
 
+            <ul>
+                <li>
+                    2 million Americans diagnosed with cancer every year
+                </li>
+                <li>
+                    Previous work has been done to distinguish between cancer types with only fungal DNA from around the tumor
+                </li>
+                <li>
+                    Can we learn about the progression of the cancer, as measured by cancer stage and days to death, if we incorporated data about the patient and sample as well?
+                </li>
+            </ul>
+            
         <h2>Data Collection</h2>
-        <p>
-            
-        </p>
+        <ul>
+            <li>
+                Fungal counts and metadata feature tables obtained from the TCGA cohort of the aforementioned study batch corrected to the WIS cohort
+            </li>
+            <li>
+                Tissue samples were taken from and around tumors and then sequenced using ITS2 (WIS) and shotgun metagenomic approach (TCGA)
+            </li>
+            <li>
+                For more detail, see: https://www.cell.com/cell/fulltext/S0092-8674(22)01127-8
+            </li>
+        </ul>
         
+    
+
         <h2>Methods Overview</h2>
-        <p>
-            
-        </p>
+        <ul>
+            <li>
+                Metadata was preprocessed using One Hot Encoding and Ordinal Encoding and then merged with the fungal counts table
+            </li>
+            <li>
+                Null values were imputed with the means of their respective columns
+            </li>
+            <li>
+                For cancer stage classification, the data was fed through a Gradient Boost Classifier for each “stage vs all” classification with 10-folds cross validation
+            </li>
+            <li>
+                For regression, the data was put through a lasso ridge regression with 10-folds cross validation and a Mean Squared Error loss function
+            </li>
+        </ul>
         
         <h2>Summary of Findings</h2>
-        <p>
-            
-        </p>
+        <ul>
+            <li>
+                We were able to classify each cancer stages vs all other stages with high accuracy, obtaining high AUROC (90+%) and AUPR (80+%) scores
+            </li>
+            <li>
+                We were unsuccessful in being able to predict days to death through combining metadata and fungal counts data, obtaining very high loss
+            </li>
+        </ul>
+        
         <h2>Next Steps</h2>
+        <ul>
+            <li>
+                Discover underlying biological grounds for strongly weighted features
+            </li>
+            <li>
+                Explore if strategized fungal interruption for individuals of specific metadata profiles will have an effect on cancer resilience
+            </li>
+        </ul>
         
     </main>
 	<script src="index.js"></script>
